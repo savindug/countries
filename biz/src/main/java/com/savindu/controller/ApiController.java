@@ -23,7 +23,8 @@ public class ApiController {
 
     @PostMapping("/country")
     public ResponseEntity<Country> createCountry(@RequestBody Country country) throws ResourceNotFoundException {
-        Country _country = jpaCountryRepository.save(new Country(country.getName()));
+        Country _country = jpaCountryRepository.save(
+                new Country(country.getName(), country.getRegion(), country.getCurrency(), country.getCountryCode()));
         return new ResponseEntity<>(_country, HttpStatus.CREATED);
 
     }
@@ -47,6 +48,9 @@ public class ApiController {
                 .orElseThrow(() -> new ResourceNotFoundException("Country not found"));
 
         _country.setName(country.getName());
+        _country.setRegion(country.getRegion());
+        _country.setCurrency(country.getCurrency());
+        _country.setCountryCode(country.getCountryCode());
         jpaCountryRepository.save(_country);
 
         return ResponseEntity.ok().body(_country);

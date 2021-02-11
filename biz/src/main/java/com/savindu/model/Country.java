@@ -35,10 +35,14 @@ public class Country {
     @Column(name = "updated_at", nullable = false)
     private Date updatedAt;
 
-    public Country(){}
+    public Country() {
+    }
 
-    public Country(String name) {
+    public Country(String name, String region, String currency, String countryCode) {
         this.name = name;
+        this.region = region;
+        this.currency = currency;
+        this.countryCode = countryCode;
     }
 
     public String getName() {
@@ -51,6 +55,30 @@ public class Country {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 
     public Date getCreatedAt() {
@@ -66,6 +94,9 @@ public class Country {
         return "Country{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", region='" + region + '\'' +
+                ", currency='" + currency + '\'' +
+                ", countryCode='" + countryCode + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
