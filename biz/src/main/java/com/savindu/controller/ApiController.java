@@ -8,9 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/rest/v2")
@@ -20,15 +17,14 @@ public class ApiController {
     JpaCountryRepository jpaCountryRepository;
 
     @GetMapping("/")
-    public String home(){
+    public String home() {
         return "hello";
     }
 
     @PostMapping("/country")
     public ResponseEntity<Country> createCountry(@RequestBody Country country) throws ResourceNotFoundException {
-            Country _country = jpaCountryRepository
-                    .save(new Country(country.getName()));
-            return new ResponseEntity<>(_country, HttpStatus.CREATED);
+        Country _country = jpaCountryRepository.save(new Country(country.getName()));
+        return new ResponseEntity<>(_country, HttpStatus.CREATED);
 
     }
 
@@ -38,14 +34,15 @@ public class ApiController {
     }
 
     @GetMapping("/country/{id}")
-    public ResponseEntity<Country> getCountry(@PathVariable(value="id") long id) throws ResourceNotFoundException{
+    public ResponseEntity<Country> getCountry(@PathVariable(value = "id") long id) throws ResourceNotFoundException {
         Country _country = jpaCountryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Country not found"));
         return ResponseEntity.ok().body(_country);
     }
 
     @PutMapping("/country/{id}")
-    public ResponseEntity<Country> updateCountry(@PathVariable(value="id") long id, @RequestBody Country country) throws ResourceNotFoundException{
+    public ResponseEntity<Country> updateCountry(@PathVariable(value = "id") long id, @RequestBody Country country)
+            throws ResourceNotFoundException {
         Country _country = jpaCountryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Country not found"));
 
@@ -58,7 +55,7 @@ public class ApiController {
     @DeleteMapping("/country/{id}")
     public ResponseEntity<Country> deleteCountry(@PathVariable(value = "id") long id) throws Exception {
         Country _country = jpaCountryRepository.findById(id)
-                        .orElseThrow(() -> new ResourceNotFoundException("Country not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Country not found"));
 
         jpaCountryRepository.delete(_country);
         return new ResponseEntity<>(_country, HttpStatus.OK);
