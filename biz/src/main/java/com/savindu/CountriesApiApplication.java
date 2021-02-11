@@ -10,4 +10,15 @@ public class CountriesApiApplication {
 		SpringApplication.run(CountriesApiApplication.class, args);
 	}
 
+	// @Configuration
+	// public class AppConf implements WebMvcConfigurer {
+
+	// 	@Override
+	// 	public void addCorsMappings(CorsRegistry registry) {
+	// 		registry.addMapping("/**")
+	// 				.allowedOrigins("http://localhost:4200")
+	// 				.allowedMethods("*");
+	// 	}
+	// }
+
 }

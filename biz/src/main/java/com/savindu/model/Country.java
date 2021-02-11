@@ -16,6 +16,15 @@ public class Country {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "region")
+    private String region;
+
+    @Column(name = "currency")
+    private String currency;
+
+    @Column(name = "countryCode")
+    private String countryCode;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false)

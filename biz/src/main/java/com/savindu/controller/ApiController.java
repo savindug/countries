@@ -1,21 +1,23 @@
 package com.savindu.controller;
 
+import com.savindu.exceprion.ResourceNotFoundException;
 import com.savindu.model.Country;
-import com.savindu.util.JpaCountryRepository;
+import com.savindu.Repository.JpaCountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/rest/v2")
-public class API {
+public class ApiController {
 
     @Autowired
-    JpaCountryRepository jcr;
+    JpaCountryRepository jpaCountryRepository;
 
     @GetMapping("/")
     public String home(){
@@ -23,32 +25,43 @@ public class API {
     }
 
     @PostMapping("/country")
-    public ResponseEntity<Country> create(@RequestBody Country country){
-        try {
-            Country _country = jcr
+    public ResponseEntity<Country> createCountry(@RequestBody Country country) throws ResourceNotFoundException {
+            Country _country = jpaCountryRepository
                     .save(new Country(country.getName()));
             return new ResponseEntity<>(_country, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+
     }
 
     @GetMapping("/countries")
-    public ResponseEntity<List<Country>> getAllTutorials(@RequestParam(required = false) String name) {
-        try {
-            List<Country> countryList = new ArrayList<Country>();
+    public ResponseEntity<Iterable<Country>> getAllCountries() {
+        return ResponseEntity.ok().body(jpaCountryRepository.findAll());
+    }
 
-            if (name == null)
-                jcr.findAll().forEach(countryList::add);
+    @GetMapping("/country/{id}")
+    public ResponseEntity<Country> getCountry(@PathVariable(value="id") long id) throws ResourceNotFoundException{
+        Country _country = jpaCountryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Country not found"));
+        return ResponseEntity.ok().body(_country);
+    }
 
-            if (countryList.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
+    @PutMapping("/country/{id}")
+    public ResponseEntity<Country> updateCountry(@PathVariable(value="id") long id, @RequestBody Country country) throws ResourceNotFoundException{
+        Country _country = jpaCountryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Country not found"));
 
-            return new ResponseEntity<>(countryList, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        _country.setName(country.getName());
+        jpaCountryRepository.save(_country);
+
+        return ResponseEntity.ok().body(_country);
+    }
+
+    @DeleteMapping("/country/{id}")
+    public ResponseEntity<Country> deleteCountry(@PathVariable(value = "id") long id) throws Exception {
+        Country _country = jpaCountryRepository.findById(id)
+                        .orElseThrow(() -> new ResourceNotFoundException("Country not found"));
+
+        jpaCountryRepository.delete(_country);
+        return new ResponseEntity<>(_country, HttpStatus.OK);
     }
 
 }
