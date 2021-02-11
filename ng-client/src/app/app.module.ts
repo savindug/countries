@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { AboutComponent } from './components/layout/about/about.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 import { CountriesListComponent } from './components/countries-list/countries-list.component';
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CountriesListComponent } from './components/countries-list/countries-li
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule       
+    MatTableModule,
+    MatIconModule       
   ],
   providers: [],
   bootstrap: [AppComponent]
