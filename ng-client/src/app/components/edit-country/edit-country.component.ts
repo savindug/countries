@@ -49,14 +49,22 @@ export class EditCountryComponent implements OnInit {
   }
 
   onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onOkClick(): void {
     this.dialogRef.close(this.country);
   }
 
   updateCountry() {
     if(this.formGroup.valid){
       console.log('selected region ', this.formGroup.controls['region'].value)
-        this.country = new Country(this.formGroup.controls['name'].value, this.formGroup.controls['region'].value, this.formGroup.controls['currency'].value, this.formGroup.controls['c_code'].value);
-        this.onNoClick();
+        //this.country = new Country(, , this.formGroup.controls['currency'].value, this.formGroup.controls['c_code'].value);
+        this.country.name = (this.formGroup.controls['name'].value);
+        this.country.region = (this.formGroup.controls['region'].value);
+        this.country.currency = (this.formGroup.controls['currency'].value);
+        this.country.countryCode = (this.formGroup.controls['c_code'].value);
+        this.onOkClick();
     }else{
       alert('Please Provide Required Details')
     }

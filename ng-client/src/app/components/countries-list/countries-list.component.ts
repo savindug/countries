@@ -72,7 +72,11 @@ export class CountriesListComponent implements OnInit {
 
 
     dialogRef.afterClosed().subscribe(result => {
-      this.updateCountry(result);
+      if(JSON.stringify(country) === JSON.stringify(result)){
+        console.log('Records not updated');
+      }else{
+        this.updateCountry(result);
+      }
     });
   }
 

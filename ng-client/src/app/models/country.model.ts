@@ -14,5 +14,18 @@ constructor(name: string, region: string, currency: string, countryCode: string)
     this.countryCode = countryCode;
 }
 
+setName(name: string) {
+    this.name = name;
+}
+setRegion(region: string) {
+    this.region = region;
+}
+setCurrency(currency: string) {
+    this.currency = currency;
+}
+setCountryCode(countryCode: string) {
+    this.countryCode = countryCode;
+}
+
 
 }

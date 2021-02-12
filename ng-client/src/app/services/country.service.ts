@@ -30,7 +30,7 @@ export class CountryService {
   }
 
   updateCountry = (country: Country) : Observable <Country> => {
-    console.log(`${serviceURI}/country/${country.id}`);
+    console.log(`${serviceURI}/country/${country.id}/${JSON.stringify(country)}`);
     return this.http.put<Country> (`${serviceURI}country/${country.id}`, country, httpOptions);
   } 
 
