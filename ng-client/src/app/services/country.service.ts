@@ -26,15 +26,16 @@ export class CountryService {
   }
 
   addCountry = (country: Country) : Observable <Country> => {
-    return this.http.post<Country> (`${serviceURI}/country`, country, httpOptions);
+    return this.http.post<Country> (`${serviceURI}country`, country, httpOptions);
   }
 
   updateCountry = (country: Country) : Observable <Country> => {
-    return this.http.put<Country> (`${serviceURI}/country/${country.id}`, country, httpOptions);
+    console.log(`${serviceURI}/country/${country.id}`);
+    return this.http.put<Country> (`${serviceURI}country/${country.id}`, country, httpOptions);
   } 
 
   deleteCountry = (id: number) : Observable <Country> => {
-    return this.http.delete<Country> (`${serviceURI}/country/${id}`, httpOptions);
+    return this.http.delete<Country> (`${serviceURI}country/${id}`, httpOptions);
   }
    
 }

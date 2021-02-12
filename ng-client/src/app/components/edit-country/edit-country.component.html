@@ -1,0 +1,33 @@
+<h1 mat-dialog-title class="text-center">Edit Country</h1>
+<form class="form"  [formGroup] = "formGroup">
+  <div mat-dialog-content>
+      <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Country Name"  required formControlName = "name">
+          </mat-form-field>
+        
+          <mat-form-field>
+              <mat-label>{{country.region}}</mat-label>
+              <mat-select formControlName = "region">
+                <mat-option *ngFor="let region of regions" [value]="region.value">
+                  {{region.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <input matInput placeholder="Currency"  required formControlName = "currency">
+          </mat-form-field>
+  
+          <mat-form-field>
+              <input matInput placeholder="Country Code"  required formControlName = "c_code">
+          </mat-form-field>
+  
+        </div>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button (click) = "updateCountry()" mat-button cdkFocusInitial>Ok</button>
+    </div>
+</form>
+
