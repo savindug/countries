@@ -30,7 +30,7 @@ export class AboutComponent implements OnInit {
   apiRoutes: APIRouteData[] = [
     {method: 'GET', route: '/countries', desc: 'Get All Country Details', req: 'Parameter', req_data: 'null', res: `JSON objects array of ${JSON.stringify(this.response_type)}`},
     {method: 'GET', route: '/country/{id}', desc: 'Get Country Details by Id', req: 'Parameter', req_data: 'Country id: Integer', res: `JSON object of ${JSON.stringify(this.response_type)}`},
-    {method: 'POST', route: '/country/{id}', desc: 'Add new Country Details', req: 'Parameter and Body', req_data: `JSON object of ${JSON.stringify(this.response_type)}`, res: `JSON object of ${JSON.stringify(this.response_type)}`},
+    {method: 'POST', route: '/country', desc: 'Add new Country Details', req: 'Parameter and Body', req_data: `JSON object of ${JSON.stringify(this.response_type)}`, res: `JSON object of ${JSON.stringify(this.response_type)}`},
     {method: 'PUT', route: '/country/{id}', desc: 'Update Country Details by id', req: 'Parameter and Body', req_data: `JSON object of ${JSON.stringify(this.response_type)}`, res: `JSON object of ${JSON.stringify(this.response_type)}`},
     {method: 'DELETE', route: '/country/{id}', desc: 'DELETE Country Details by id', req: 'Parameter', req_data: 'Country.id Integer', res: `HTTP status of successfull`},
   ]
