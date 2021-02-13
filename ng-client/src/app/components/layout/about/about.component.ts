@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-<<<<<<< HEAD
-=======
 interface APIRouteData {
   method: string,
   route: string,
@@ -11,7 +9,6 @@ interface APIRouteData {
   res: string,
 }
 
->>>>>>> ng-client
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -21,8 +18,6 @@ export class AboutComponent implements OnInit {
 
   constructor() { }
 
-<<<<<<< HEAD
-=======
   panelOpenState = false;
 
   response_type = {
@@ -40,7 +35,6 @@ export class AboutComponent implements OnInit {
     {method: 'DELETE', route: '/country/{id}', desc: 'DELETE Country Details by id', req: 'Parameter', req_data: 'Country.id Integer', res: `HTTP status of successfull`},
   ]
   
->>>>>>> ng-client
   ngOnInit(): void {
   }
 

@@ -19,8 +19,6 @@ table {
 .icon-btn {
   cursor: pointer;
 }
-<<<<<<< HEAD
-=======
 
 mat-header-cell,
 mat-cell {
@@ -30,4 +28,3 @@ mat-cell {
   border-bottom-style: solid;
   border-bottom-color: lightgrey;
 }
->>>>>>> ng-client
