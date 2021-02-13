@@ -24,6 +24,7 @@
 
 # 💻 Run ng client
 - cd ng-client
+- npm install
 - ng serve --open
 
 # Enjoy
