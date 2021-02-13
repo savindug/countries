@@ -21,6 +21,12 @@ public class ApiController {
         return "hello";
     }
 
+    /**
+     * route for post country data
+     * @param country
+     * @return
+     * @throws ResourceNotFoundException
+     */
     @PostMapping("/country")
     public ResponseEntity<Country> createCountry(@RequestBody Country country) throws ResourceNotFoundException {
         Country _country = jpaCountryRepository.save(
@@ -29,11 +35,21 @@ public class ApiController {
 
     }
 
+    /**
+     * route for get all country data
+     * @return
+     */
     @GetMapping("/countries")
     public ResponseEntity<Iterable<Country>> getAllCountries() {
         return ResponseEntity.ok().body(jpaCountryRepository.findAll());
     }
 
+    /**
+     * route for get specific country data
+     * @param id
+     * @return
+     * @throws ResourceNotFoundException
+     */
     @GetMapping("/country/{id}")
     public ResponseEntity<Country> getCountry(@PathVariable(value = "id") long id) throws ResourceNotFoundException {
         Country _country = jpaCountryRepository.findById(id)
@@ -41,6 +57,13 @@ public class ApiController {
         return ResponseEntity.ok().body(_country);
     }
 
+    /**
+     * route for update country data
+     * @param id
+     * @param country
+     * @return
+     * @throws ResourceNotFoundException
+     */
     @PutMapping("/country/{id}")
     public ResponseEntity<Country> updateCountry(@PathVariable(value = "id") long id, @RequestBody Country country)
             throws ResourceNotFoundException {
@@ -56,6 +79,12 @@ public class ApiController {
         return ResponseEntity.ok().body(_country);
     }
 
+    /**
+     * route for delete specific country data
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @DeleteMapping("/country/{id}")
     public ResponseEntity<Country> deleteCountry(@PathVariable(value = "id") long id) throws Exception {
         Country _country = jpaCountryRepository.findById(id)

@@ -10,15 +10,19 @@ public class CountriesApiApplication {
 		SpringApplication.run(CountriesApiApplication.class, args);
 	}
 
+	/**
+	 * implement WebMvcConfigurer to add cores configuration only to allow access
+	 * from origin http://127.0.0.1:4200
+	 */
 	// @Configuration
 	// public class AppConf implements WebMvcConfigurer {
 
-	// 	@Override
-	// 	public void addCorsMappings(CorsRegistry registry) {
-	// 		registry.addMapping("/**")
-	// 				.allowedOrigins("http://localhost:4200")
-	// 				.allowedMethods("*");
-	// 	}
+	// @Override
+	// public void addCorsMappings(CorsRegistry registry) {
+	// registry.addMapping("/**")
+	// .allowedOrigins("http://localhost:4200")
+	// .allowedMethods("*");
+	// }
 	// }
 
 }
