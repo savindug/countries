@@ -6,8 +6,13 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 @Table(name = "country")
+/**
+ * Entity type Model of Country
+ * this class use annotations to generate database structure automatically.
+ */
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,9 +40,16 @@ public class Country {
     @Column(name = "updated_at", nullable = false)
     private Date updatedAt;
 
-    public Country() {
-    }
 
+    /**
+     *
+     * @param name
+     * @param region
+     * @param currency
+     * @param countryCode
+     *
+     * Overloaded constructor to create Country objects
+     */
     public Country(String name, String region, String currency, String countryCode) {
         this.name = name;
         this.region = region;
