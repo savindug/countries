@@ -1,0 +1,38 @@
+  <h1 mat-dialog-title class="text-center">Add Country</h1>
+  <form class="form"  [formGroup] = "formGroup">
+    <div mat-dialog-content>
+        <div class="example-container">
+            <mat-form-field>
+              <input matInput placeholder="Country Name"  required formControlName = "name">
+            </mat-form-field>
+          
+            <mat-form-field>
+                <mat-label>Region</mat-label>
+                <select matNativeControl required formControlName = "region">
+                  <option value="Africa">Africa</option>
+                  <option value="Asia">Asia</option>
+                  <option value="Caribbean">Caribbean</option>
+                  <option value="Central America">Central America</option>
+                  <option value="Europe">Europe</option>
+                  <option value="North America">North America</option>
+                  <option value="Oceania">Oceania</option>
+                  <option value="South America">South America</option>
+                </select>
+              </mat-form-field>
+    
+              <mat-form-field>
+                <input matInput placeholder="Currency"  required formControlName = "currency">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input matInput placeholder="Country Code"  required formControlName = "c_code">
+            </mat-form-field>
+    
+          </div>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button (click) = "addCountry()" mat-button cdkFocusInitial>Ok</button>
+      </div>
+  </form>
+  
