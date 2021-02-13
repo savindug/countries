@@ -4,8 +4,6 @@
 
  <img src="https://github.com/savindug/countries/blob/master/Screenshot%20(20).png">
 
-This is Full a Stack Web Application developed with Angular + Spring boot
-
 
 #  💻 RESTful Countries API Endpoints
   
