@@ -40,6 +40,7 @@ public class Country {
     @Column(name = "updated_at", nullable = false)
     private Date updatedAt;
 
+    public Country(){}
 
     /**
      *
