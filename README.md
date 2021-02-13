@@ -1,4 +1,4 @@
-# Countries API
+# 🌍 Countries API
 
 **Welcome to RESTful Countries API**
 
