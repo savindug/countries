@@ -25,6 +25,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav'
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {MatSidenavModule} from '@angular/material/sidenav'
     MatToolbarModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
