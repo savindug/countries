@@ -21,6 +21,14 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { EditCountryComponent } from './components/edit-country/edit-country.component';
+<<<<<<< HEAD
+=======
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSidenavModule} from '@angular/material/sidenav'
+import {MatExpansionModule} from '@angular/material/expansion';
+>>>>>>> ng-client
 
 @NgModule({
   declarations: [
@@ -47,7 +55,16 @@ import { EditCountryComponent } from './components/edit-country/edit-country.com
     MatOptionModule,
     MatSelectModule,
     MatInputModule,
+<<<<<<< HEAD
     ReactiveFormsModule
+=======
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatExpansionModule
+>>>>>>> ng-client
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -42,6 +42,9 @@ export class AddCountryComponent {
   }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ng-client
 }
 

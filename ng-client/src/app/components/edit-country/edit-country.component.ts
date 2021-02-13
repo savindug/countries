@@ -49,7 +49,11 @@ export class EditCountryComponent implements OnInit {
   }
 
   onNoClick(): void {
+<<<<<<< HEAD
     this.dialogRef.close();
+=======
+    this.dialogRef.close(null);
+>>>>>>> ng-client
   }
 
   onOkClick(): void {
@@ -59,7 +63,10 @@ export class EditCountryComponent implements OnInit {
   updateCountry() {
     if(this.formGroup.valid){
       console.log('selected region ', this.formGroup.controls['region'].value)
+<<<<<<< HEAD
         //this.country = new Country(, , this.formGroup.controls['currency'].value, this.formGroup.controls['c_code'].value);
+=======
+>>>>>>> ng-client
         this.country.name = (this.formGroup.controls['name'].value);
         this.country.region = (this.formGroup.controls['region'].value);
         this.country.currency = (this.formGroup.controls['currency'].value);

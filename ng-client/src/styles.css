@@ -3,6 +3,7 @@
 html,
 body {
   height: 100%;
+  margin-bottom: 100px;
 }
 body {
   margin: 0;
@@ -22,6 +23,7 @@ body {
   display: none;
 }
 
-mat-footer-row mat-footer-cell {
+mat-footer-row mat-footer-cel {
+  display: flex;
   justify-content: center;
 }
