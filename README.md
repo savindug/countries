@@ -16,7 +16,7 @@
 # 👉 To Use
 
 - Clone the repo using 
-      git clone https://github.com/savindug/countries.git
+      - git clone https://github.com/savindug/countries.git
 
 # 💻 Run Spring boot Api
 - cd ./biz
