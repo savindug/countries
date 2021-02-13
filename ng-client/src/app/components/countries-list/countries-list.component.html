@@ -56,19 +56,14 @@
     <ng-container matColumnDef="fetching">
         <th mat-footer-cel *matFooterCellDef colspan="6">
             Please wait Data is Fetching......
+            <mat-spinner></mat-spinner>
         </th>
     </ng-container>
 
-    <ng-container matColumnDef="noData">
-        <th mat-footer-cel *matFooterCellDef colspan="6">
-            No Data
-        </th>
-    </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    <mat-footer-row *matFooterRowDef="['fetching']" [ngClass]="{'hide': dataSource!=null}"></mat-footer-row>
-    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row>
+    <mat-footer-row [ngClass] = "setClasses()" *matFooterRowDef="['fetching']"></mat-footer-row>
  
 </table>
 

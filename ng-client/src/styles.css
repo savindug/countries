@@ -22,6 +22,7 @@ body {
   display: none;
 }
 
-mat-footer-row mat-footer-cell {
+mat-footer-row mat-footer-cel {
+  display: flex;
   justify-content: center;
 }

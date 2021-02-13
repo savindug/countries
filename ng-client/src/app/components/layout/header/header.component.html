@@ -1,8 +1,15 @@
-<header class="container text-center text-light bg-dark">
-    <h1>
-        Countries
-    </h1>
-    <nav>
-        <a routerLink="/">Home</a> | <a routerLink="/about">About</a>
-    </nav>
+<header>
+    <mat-toolbar class="bg-dark">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+         <mat-icon>menu</mat-icon>
+       </button>
+       <span><a class="text-light nav-link" routerLink="/">Countries API</a></span>
+       <span class="example-spacer"></span>
+      <span>
+      </span> <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <a class="text-light nav-link"  routerLink="/about">Docs</a>
+       </button>
+     </mat-toolbar>
 </header>
+
+  
